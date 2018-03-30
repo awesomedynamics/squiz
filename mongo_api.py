@@ -76,3 +76,16 @@ def register_user(message):
 
         # вставляем в монго запись - раз и навсегда
         bookings_coll.insert_one(booking)
+
+def create_registration(call):
+    user_id = call.from_user.id
+    event_id = call.data
+    username = str(call.from_user.first_name) + " " + str(call.from_user.last_name)
+
+    booking = {
+        "chat_id": user_id,
+        "name": username,
+        "event": event_id,
+        "contact": None
+    }
+    bookings_coll.insert_one(booking)

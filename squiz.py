@@ -82,10 +82,15 @@ def free_text(message: telebot.types.Message):
     update_booking(chat_id=message.chat.id, contact=message.contact.phone_number)
     main_menu(message)
 
-@bot.callback_query_handler(func = lambda call:True)
-def print_call(call):
-    print(call)
-    print(call.data)
+@bot.callback_query_handler(func = lambda call: True)
+def event_registration(call):
+    create_registration(call)
+
+    reply_markup = types.ForceReply()
+    bot.send_message(chat_id=message.chat.id, text="количество человек в команде:", reply_markup=reply_markup)
+
+
+
 
 #  handling free text message
 @bot.message_handler()
