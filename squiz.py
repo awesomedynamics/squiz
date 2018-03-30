@@ -95,7 +95,7 @@ def  team_size(message: telebot.types.Message):
     # апдейтим контакт в монго
     update_booking(chat_id=message.chat.id, team_name=message.text)
     reply_markup = types.ForceReply()
-    bot.send_message(chat_id=call.from_user.id, text="количество человек в команде:", reply_markup=reply_markup)
+    bot.send_message(chat_id=message.chat.id, text="количество человек в команде:", reply_markup=reply_markup)
 
 @bot.message_handler(func = lambda message: message.reply_to_message is not None and message.reply_to_message.text == "количество человек в команде:")
 def  team_size(message: telebot.types.Message):
