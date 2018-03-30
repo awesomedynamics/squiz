@@ -25,7 +25,7 @@ def start_command(message: telebot.types.Message):
 
     username = str(message.chat.first_name) + " " + str(message.chat.last_name)
 
-    startText = "Привет " + username + " Я - BotMonster! \nХочешь, мы и тебе сделаем крутого чат-бота ? "
+    startText = "Привет " + username + " Я - бот Squiz!\nЯ зарегистрирую тебя, напомню об игре и вообще я "
     bot.send_message(message.chat.id, startText)
 
     main_menu(message)
@@ -53,7 +53,7 @@ def bot_userstory(message: telebot.types.Message):
 #  обрабатываем кнопку В главное меню
 @bot.message_handler(func=lambda message: message.text is not None and message.text == "В главное меню")
 def main_menu(message: telebot.types.Message):
-    commands = ["Заказать бота", "А сайт у вас есть ?", "Сколько это стоит ?", "Попробуй наших демо ботов"]
+    commands = ["Хочу играть!"]
 
     markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
 
@@ -82,9 +82,12 @@ def free_text(message: telebot.types.Message):
 @bot.message_handler()
 def record_contact(message: telebot.types.Contact):
 
-    answer = "Я пока ничего об этом не знаю, но ты точно найдешь желанное на нашем сайте! "
+    answer = "Я пока ничего об этом не знаю, но ты можешь оставить свой номер и мы перезвоним! "
+    get_phone_button = types.KeyboardButton(text='Оставлю номер, позвоните', request_contact=True)
+    markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
+    markup.row(get_phone_button)
     update_log(chat_id=message.chat.id, message=message)
-    bot.send_message(message.chat.id, answer)
+    bot.send_message(message.chat.id, answer, reply_markup=markup)
 
 
 
