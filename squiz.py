@@ -82,6 +82,10 @@ def free_text(message: telebot.types.Message):
     update_booking(chat_id=message.chat.id, contact=message.contact.phone_number)
     main_menu(message)
 
+@bot.callback_query_handler()
+def print_call(call):
+    print(call)
+    print(call.data)
 
 #  handling free text message
 @bot.message_handler()
