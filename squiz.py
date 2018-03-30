@@ -58,20 +58,18 @@ def get_games_list(message: telebot.types.Message):
     "status": "open",
     "site": "HopHead",
     "time": "17:00",
-    "address": "бауманская 16"}, {"event": "101",
-    "date": "02-04-2017",
+    "address": "бауманская 16"}, {"event": "игра 101",
+    "date": "2 апреля",
     "type": "normal",
     "status": "open",
     "site": "Дорогая я перезвоню",
     "time": "17:00",
     "address": "Пятницкий пер.,2"}]
 
-    markup = types.InlineKeyboardMarkup()
-    row = []
     for g in games_list:
+        markup = types.InlineKeyboardMarkup()
         markup.add(types.InlineKeyboardButton(text = "зарегистрироваться", callback_data=g['event']))
-
-        bot.send_message(message.chat.id, text = g['event'] + "," + g['date'] + "," + g['site']+ ", начало в" + g['time'],
+        bot.send_message(message.chat.id, text = g['event'] + "," + g['date'] + "," + g['site']+ ", начало в " + g['time'],
                      reply_markup=markup)
 
 # saving the contact
