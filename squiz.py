@@ -33,34 +33,17 @@ def start_command(message: telebot.types.Message):
     #Регистрируем юзера
     register_user(message)
 
-# Обрабатываем кнопку "Заказать бота"
-@bot.message_handler(func = lambda message: message.text is not None and message.text == "Заказать бота")
-def order_bot(message: telebot.types.Message):
-    reply_markup = types.ForceReply()
-    bot.send_message(chat_id=message.chat.id, text="короткая пользовательская история:", reply_markup=reply_markup)
-
-
-# Обрабатываем ответ о функционале бота
-@bot.message_handler(func = lambda message: message.reply_to_message is not None and message.reply_to_message.text == "короткая пользовательская история:")
-def bot_userstory(message: telebot.types.Message):
-    update_booking(chat_id=message.chat.id, product="bot", userstory = message.text)
-    markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
-    get_phone_button = types.KeyboardButton(text='Оставлю номер, позвоните', request_contact=True)
-    markup.row(get_phone_button)
-    bot.send_message(chat_id=message.chat.id, text="оставь нам свой телефон и мы перезвоним", reply_markup=markup)
-
 
 #  обрабатываем кнопку В главное меню
 @bot.message_handler(func=lambda message: message.text is not None and message.text == "В главное меню")
 def main_menu(message: telebot.types.Message):
-    commands = ["Хочу играть!"]
+    commands = ["Хочу играть!", "Ближайшие игры"]
 
     markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
 
     get_phone_button = types.KeyboardButton(text='Оставлю номер, позвоните', request_contact=True)
 
     markup.row(commands[0], commands[1])
-    markup.row(commands[2], commands[3])
     markup.row(get_phone_button)
 
     bot.send_message(message.chat.id, "нажми на кнопку - получишь результат",
