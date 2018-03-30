@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "squizbot-199509",
+  "private_key_id": "44ce101cb2762d9ad1cf2bcd870ec5e4afddbd41",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDGEdDQO/RMp7tv\nDonRSvjtF5rNTzjwTD/f0bIQ1AkK5bakdWpYkylnsX+JC+FVNm526yGu7DEEBMx+\niAig77Q4u+thNgx01e6ZViU9f/u1nXQne4sbaB388p0xr1U2+ab5/q9NOwer3xY0\n1QyQ6doR3N64/ijSt3vVTQtnPBw7UWO4I3OumpAwJJ14EeqZVOfDZIQ7jDU5iYtM\ns+tHlR0NEDkyUXsudywp/rugqEKqxuYX4ngqjThQaWEVlZw4meXcrKepAO4h8c2i\nv06OoVA2gw0ex9TVoQmXdP24PbGSjTaMIc+eZ0wKX4nFtDWH3nIHCTxn3Mw9RKD0\nnIFDg5EDAgMBAAECggEADXsnvkFgAFoOQAg6SYkTzKqMBvTuCC6SAZbd/f06KSHq\npRW3/K1cTRcTE7qmRjMW06s8HXhf+0kKuukuK5E4SZnb8tlHgcN2oomIriXodbtw\nxqf6MNq/58TpMN+HkKu8H+aj+3RM5ZE6i4AD6fBKWM4ZFRHfddaDn2H627aHD8mW\nNymmApKrW0L7QTPpo3Rw1uihh3e+CB5mNLTgw1T6ZF3q/OriaBfeXL9AOEKmzGDP\nSXudwJTRQjf6hbP7xYZ/7gLC2OY1USXYMFvhYVXETOP53BKdOUJ55U9pggiOS5Zi\n/kb1ajQdMOOzJz+L4cYY8XTkXgwnmfsnMYfhFuBVoQKBgQDzbJ+1cAl3C66g747Z\no2+PQV0+rFoGe8J0cbQ+HuMMwDsuxPAYkdjS5/vy19z+WSFV6L0wDK/wPaPdvH+U\nYgNDGCcy/j+yzTJlePQOxmGHZy10kggZ9gkvCt0oWMlILqyRb3U5Unxj/SUa8T5r\nI0ra4G+sjeILudMHHcmUD82vswKBgQDQTVvkYq8yxBHjo0UL+CcNrxaMEJM212sb\nUH898gQ04nH5bQgrPesfqLHdRzYvA3e8+oMF1GqoPHtAhEuy4Zp9RfTlHcCiSzBA\n4mgUkMz3Fkb2xa1NQ1tMAFKG0BxASilWhy8RHcR9LV+qfzpq4A+eM3n46mXdTf31\ncUV9dqlxcQKBgQCt87TZopuQ7882AJsTmgCR3cL1k5KtyWj3b32/WrEkHobscB2n\nYSoR5WedbXbmZ+kzjCMOIDLmOhZM0XRWJAhyvOLeROReMNbPvrShjlCJw0ivYd/a\nNYDwlhHe0DvekkQNlhmuAe0UQwVuEHFrfIf0i6giJi4f9QYBst6nKPfykwKBgAXi\nGXVS4DXj2cl/JAUZhijZyB4+nZnP7cOAu4dJXZsMxkFQNgnanthvEE76ouojA++/\nd5HjlPuZcbW5xtWPj6h4IFmURIuQ6hT7EAt8p31XELwJi0KCY4K7A5mxKQsbzR0X\nhlnKaHFMpcYP/9ti5q4GMCy6mhPtDv4uq9LGVjTRAoGBAI8pIj1oyL3AppqR70zY\nmQmWQnPhIEmz+ClDlOZHsOPihU73Cl1mcLXEHMwHiXkkVL3CblpiY4xwB23Atn77\nxdbS3T+RmpBKdMpoKe3L84p9sqvLS7Xw94QgD+xpwAjQ5kx6H5SYBTdoHMGWppjc\now78aLQ8MFbLFbmzxMlnH61E\n-----END PRIVATE KEY-----\n",
+  "client_email": "squizbot@squizbot-199509.iam.gserviceaccount.com",
+  "client_id": "115883820737858708159",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/squizbot%40squizbot-199509.iam.gserviceaccount.com"
+}
