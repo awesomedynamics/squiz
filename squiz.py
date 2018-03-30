@@ -87,7 +87,7 @@ def event_registration(call):
     create_registration(call)
 
     reply_markup = types.ForceReply()
-    bot.send_message(chat_id=message.chat.id, text="количество человек в команде:", reply_markup=reply_markup)
+    bot.send_message(chat_id=call.from_user.id, text="количество человек в команде:", reply_markup=reply_markup)
 
 
 
