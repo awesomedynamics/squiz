@@ -30,14 +30,11 @@ def start_command(message: telebot.types.Message):
 
     main_menu(message)
 
-    #Регистрируем юзера
-    register_user(message)
-
 
 #  обрабатываем кнопку В главное меню
 @bot.message_handler(func=lambda message: message.text is not None and message.text == "В главное меню")
 def main_menu(message: telebot.types.Message):
-    commands = ["Хочу играть!", "Ближайшие игры"]
+    commands = ["Хочу играть!", "Написать нам"]
 
     markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
 
