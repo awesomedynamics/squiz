@@ -67,9 +67,10 @@ def get_games_list(message: telebot.types.Message):
     "address": "Пятницкий пер.,2"}]
 
     markup = types.InlineKeyboardMarkup()
+    row = []
     for g in games_list:
-        markup.add(types.InlineKeyboardButton(text = g['event'] + "," + g['date'] + "," + g['site']+ ", начало в" + g['time'], callback_data=g['event']))
-
+        row.append(types.InlineKeyboardButton(text = g['event'] + "," + g['date'] + "," + g['site']+ ", начало в" + g['time'], callback_data=g['event']))
+    markup.row(*row)
     bot.send_message(message.chat.id, "выбери игру",
                      reply_markup=markup)
 
