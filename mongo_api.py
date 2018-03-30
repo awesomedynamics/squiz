@@ -105,4 +105,4 @@ def get_booking_status(message):
 def booking_move_to_done(message):
     existing_booking = bookings_coll.find_one({"chat_id": message.chat.id})
     bookings_done_coll.insert_one(existing_booking)
-    bookings_coll.delete_many("chat_id": message.chat.id)
+    bookings_coll.delete_many({"chat_id": message.chat.id})
