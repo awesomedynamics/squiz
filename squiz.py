@@ -25,7 +25,7 @@ def start_command(message: telebot.types.Message):
 
     username = str(message.chat.first_name) + " " + str(message.chat.last_name)
 
-    startText = "Привет " + username + " Я - бот Squiz!\nЯ зарегистрирую тебя, напомню об игре и вообще я "
+    startText = "Привет, " + username + "! Я - бот Squiz!\nЯ зарегистрирую тебя, напомню об игре и вообще я "
     bot.send_message(message.chat.id, startText)
 
     main_menu(message)
@@ -49,7 +49,29 @@ def main_menu(message: telebot.types.Message):
     bot.send_message(message.chat.id, "нажми на кнопку - получишь результат",
                      reply_markup=markup)
 
+@bot.message_handler(func=lambda message: message.text is not None and message.text == "Хочу играть!")
+def get_games_list(message: telebot.types.Message):
 
+    games_list = [{"event": "100",
+    "date": "01-04-2017",
+    "type": "normal",
+    "status": "open",
+    "site": "HopHead",
+    "time": "17:00",
+    "address": "бауманская 16"}, {"event": "101",
+    "date": "02-04-2017",
+    "type": "normal",
+    "status": "open",
+    "site": "Дорогая я перезвоню",
+    "time": "17:00",
+    "address": "Пятницкий пер.,2"}]
+
+    markup = types.InlineKeyboardMarkup()
+    for g in games_list:
+        markup.add(types.InlineKeyboardButton(text = g['event'] + "," + g['date'], callback_data=g['event']))
+
+    bot.send_message(message.chat.id, "выбери игру",
+                     reply_markup=markup)
 
 # saving the contact
 @bot.message_handler(content_types= ["contact"])
@@ -59,6 +81,7 @@ def free_text(message: telebot.types.Message):
     update_log(chat_id=message.chat.id, message=message)
     bot.send_message(message.chat.id, answer)
     update_booking(chat_id=message.chat.id, contact=message.contact.phone_number)
+    main_menu(message)
 
 
 #  handling free text message
