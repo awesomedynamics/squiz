@@ -1,1 +1,1 @@
-web: gunicorn botbusters:server
+web: gunicorn squiz:server
