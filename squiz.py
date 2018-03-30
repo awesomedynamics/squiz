@@ -52,8 +52,8 @@ def main_menu(message: telebot.types.Message):
 @bot.message_handler(func=lambda message: message.text is not None and message.text == "Хочу играть!")
 def get_games_list(message: telebot.types.Message):
 
-    games_list = [{"event": "100",
-    "date": "01-04-2017",
+    games_list = [{"event": "игра 100.1",
+    "date": "1 апреля",
     "type": "normal",
     "status": "open",
     "site": "HopHead",
@@ -68,7 +68,7 @@ def get_games_list(message: telebot.types.Message):
 
     markup = types.InlineKeyboardMarkup()
     for g in games_list:
-        markup.add(types.InlineKeyboardButton(text = g['event'] + "," + g['date'], callback_data=g['event']))
+        markup.add(types.InlineKeyboardButton(text = g['event'] + "," + g['date'] + "," + g['site']+ ", начало в" + g['time'], callback_data=g['event']))
 
     bot.send_message(message.chat.id, "выбери игру",
                      reply_markup=markup)
