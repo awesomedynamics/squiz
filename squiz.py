@@ -61,6 +61,12 @@ def get_games_list(message: telebot.types.Message):
     "status": "open",
     "site": "Дорогая я перезвоню",
     "time": "17:00",
+    "address": "Пятницкий пер.,2"}, {"event": "игра 102",
+    "date": "3 апреля",
+    "type": "normal",
+    "status": "open",
+    "site": "25:45",
+    "time": "20:00",
     "address": "Пятницкий пер.,2"}]
 
     for g in games_list:

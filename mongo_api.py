@@ -92,3 +92,11 @@ def create_registration(call):
         "contact": None
     }
     bookings_coll.insert_one(booking)
+
+def get_booking_status(message):
+    existing_booking = bookings_coll.find_one({"chat_id": message.chat.id})
+    if existing_booking is None:
+        status = None
+    else:
+        status = existing_booking["status"]
+    return status
