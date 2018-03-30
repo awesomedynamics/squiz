@@ -7,6 +7,7 @@ client = MongoClient(os.environ["MONGODB_URL"], username=os.environ["MONGODB_USE
                      password=os.environ["MONGODB_PASSWORD"], authSource=os.environ["MONGODB_AUTHSOURCE"])
 db = client[os.environ["MONGODB_AUTHSOURCE"]]
 bookings_coll = db.bookings
+bookings_done_coll = db.bookings_done
 log_coll = db.log
 
 
@@ -100,3 +101,8 @@ def get_booking_status(message):
     else:
         status = existing_booking["status"]
     return status
+
+def booking_move_to_done(message):
+    existing_booking = bookings_coll.find_one({"chat_id": message.chat.id})
+    bookings_done_coll.insert_one(existing_booking)
+    bookings_coll.delete_many("chat_id": message.chat.id)

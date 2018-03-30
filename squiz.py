@@ -83,6 +83,7 @@ def free_text(message: telebot.types.Message):
     update_log(chat_id=message.chat.id, message=message)
     bot.send_message(message.chat.id, answer)
     update_booking(chat_id=message.chat.id, contact=message.contact.phone_number)
+    booking_move_to_done(message)
     main_menu(message)
 
 @bot.callback_query_handler(func = lambda call: True)
