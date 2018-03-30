@@ -5,7 +5,7 @@ import datetime
 from flask import Flask, request
 from flask_sslify import SSLify
 import os
-from mongo_api import update_booking, update_log, register_user
+from mongo_api import update_booking, update_log, register_user, create_registration
 
 #подключаемся к монго
 client = MongoClient(os.environ["MONGODB_URL"], username = os.environ["MONGODB_USERNAME"], password = os.environ["MONGODB_PASSWORD"], authSource = os.environ["MONGODB_AUTHSOURCE"])
