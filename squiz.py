@@ -69,6 +69,10 @@ def get_games_list(message: telebot.types.Message):
     "time": "20:00",
     "address": "Пятницкий пер.,2"}]
 
+#удалим все что есть в коллекции с этим чатом
+    bookings_coll.delete_many({"chat_id": message.chat.id})
+
+#генерим и выводим на экран список игр
     for g in games_list:
         markup = types.InlineKeyboardMarkup()
         markup.add(types.InlineKeyboardButton(text = "зарегистрироваться", callback_data=g['event']))
@@ -116,15 +120,12 @@ def  team_size(message: telebot.types.Message):
 @bot.message_handler()
 def record_contact(message: telebot.types.Contact):
 
-    answer = "Я пока ничего об этом не знаю, но ты можешь оставить свой номер и мы перезвоним! "
+    answer = "я же просил не нажимать никуда кроме одной кнопки !"
     get_phone_button = types.KeyboardButton(text='Оставлю номер, позвоните', request_contact=True)
     markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
     markup.row(get_phone_button)
     update_log(chat_id=message.chat.id, message=message)
     bot.send_message(message.chat.id, answer, reply_markup=markup)
-
-
-
 
 
 @server.route("/bot", methods=['POST','GET'])
