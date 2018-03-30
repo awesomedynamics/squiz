@@ -10,7 +10,7 @@ bookings_coll = db.bookings
 log_coll = db.log
 
 
-def update_booking(chat_id, product=None, contact=None, userstory=None):
+def update_booking(chat_id, product=None, contact=None, userstory=None, team_size = None, team_name = None):
     if product is not None:
         bookings_coll.update_one(
             {"chat_id": chat_id},
@@ -27,14 +27,22 @@ def update_booking(chat_id, product=None, contact=None, userstory=None):
             }
         )
 
-    if userstory is not None:
+
+    if team_size is not None:
         bookings_coll.update_one(
             {"chat_id": chat_id},
             {
-                "$set": {"userstory": userstory}
+                "$set": {"team_size": team_size}
             }
         )
 
+    if team_name is not None:
+        bookings_coll.update_one(
+            {"chat_id": chat_id},
+            {
+                "$set": {"team_name": team_name}
+            }
+        )
 
 # функция пишет лог в базу
 

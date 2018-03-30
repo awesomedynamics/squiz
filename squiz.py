@@ -87,10 +87,25 @@ def event_registration(call):
     create_registration(call)
 
     reply_markup = types.ForceReply()
+    bot.send_message(chat_id=call.from_user.id, text="название команды:", reply_markup=reply_markup)
+
+@bot.message_handler(func = lambda message: message.reply_to_message is not None and message.reply_to_message.text == "название команды:")
+def  team_size(message: telebot.types.Message):
+
+    # апдейтим контакт в монго
+    update_booking(chat_id=message.chat.id, team_name=message.text)
+    reply_markup = types.ForceReply()
     bot.send_message(chat_id=call.from_user.id, text="количество человек в команде:", reply_markup=reply_markup)
 
+@bot.message_handler(func = lambda message: message.reply_to_message is not None and message.reply_to_message.text == "количество человек в команде:")
+def  team_size(message: telebot.types.Message):
 
-
+    # апдейтим контакт в монго
+    update_booking(chat_id=message.chat.id, team_size=message.text)
+    answer = "осталось оставить номер, нажми кнопку ниже !"
+    markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
+    markup.row(get_phone_button)
+    bot.send_message(message.chat.id, answer, reply_markup=markup)
 
 #  handling free text message
 @bot.message_handler()
