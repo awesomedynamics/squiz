@@ -76,7 +76,7 @@ def get_games_list(message: telebot.types.Message):
 @bot.message_handler(content_types= ["contact"])
 def free_text(message: telebot.types.Message):
 
-    answer = "кул! мы перезвоним очень-очень скоро!"
+    answer = "ура! регистрация прошла успешно!"
     update_log(chat_id=message.chat.id, message=message)
     bot.send_message(message.chat.id, answer)
     update_booking(chat_id=message.chat.id, contact=message.contact.phone_number)
@@ -102,7 +102,8 @@ def  team_size(message: telebot.types.Message):
 
     # апдейтим контакт в монго
     update_booking(chat_id=message.chat.id, team_size=message.text)
-    answer = "осталось оставить номер, нажми кнопку ниже !"
+    get_phone_button = types.KeyboardButton(text='отправить номер телефона', request_contact=True)
+    answer = "осталось оставить номер телефона, нажми на кнопку!"
     markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
     markup.row(get_phone_button)
     bot.send_message(message.chat.id, answer, reply_markup=markup)
