@@ -76,7 +76,7 @@ def get_games_list(message: telebot.types.Message):
     for g in games_list:
         markup = types.InlineKeyboardMarkup()
         markup.add(types.InlineKeyboardButton(text = "зарегистрироваться", callback_data=g['event']))
-        bot.send_message(message.chat.id, text = g['event'] + "," + g['date'] + "," + g['site']+ ", начало в " + g['time'],
+        bot.send_message(message.chat.id, text = "🎬" + g['event'] + "📆" + g['date'] + "🏟" + g['site']+ "⏰" + g['time'],
                      reply_markup=markup)
 
 # saving the contact
